@@ -10,4 +10,6 @@ wezterm.on("gui-startup", function()
     window:gui_window():maximize()
 end)
 
+config.hide_mouse_cursor_when_typing = false
+
 return config
