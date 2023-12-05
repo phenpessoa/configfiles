@@ -27,15 +27,15 @@ M.crates = {
   }
 }
 
-M.gopher = {
+M.go = {
   plugin = true,
   n = {
     ["<leader>gsj"] = {
-      "<cmd> GoTagAdd json <CR>",
+      "<cmd> GoAddTag json <CR>",
       "Add json struct tags"
     },
     ["<leader>gsy"] = {
-      "<cmd> GoTagAdd yaml <CR>",
+      "<cmd> GoAddTag yaml <CR>",
       "Add yaml struct tags"
     }
   }

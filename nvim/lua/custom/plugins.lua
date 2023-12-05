@@ -97,17 +97,6 @@ local plugins = {
     end,
   },
   {
-    "olexsmir/gopher.nvim",
-    ft = "go",
-    config = function(_, opts)
-      require("gopher").setup(opts)
-      require("core.utils").load_mappings("gopher")
-    end,
-    build = function()
-      vim.cmd [[silent! GoInstallDeps]]
-    end,
-  },
-  {
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
     opts = {},
@@ -139,7 +128,10 @@ local plugins = {
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
-      require("go").setup()
+      require("go").setup({
+        tag_options="",
+      })
+      require("core.utils").load_mappings("go")
     end,
     event = {"CmdlineEnter"},
     ft = {"go", 'gomod'},
