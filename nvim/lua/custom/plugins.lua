@@ -136,6 +136,15 @@ local plugins = {
     event = {"CmdlineEnter"},
     ft = {"go", 'gomod'},
     build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
-  }
+  },
+  {
+    "f-person/git-blame.nvim",
+    config = function()
+        require("gitblame").setup({
+          enabled = true,
+        })
+    end,
+    event = { "VeryLazy" },
+  },
 }
 return plugins
