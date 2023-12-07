@@ -100,11 +100,17 @@ local plugins = {
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
     opts = {},
-    cmd = { "Trouble" },
+    event = { "VeryLazy" },
+    config = function()
+      require("core.utils").load_mappings("trouble")
+    end,
   },
   {
     "sindrets/diffview.nvim",
-    cmd = { "DiffviewOpen" },
+    event = { "VeryLazy" },
+    config = function()
+      require("core.utils").load_mappings("diffview")
+    end,
   },
   {
     "ntpeters/vim-better-whitespace",
@@ -145,6 +151,13 @@ local plugins = {
         })
     end,
     event = { "VeryLazy" },
+  },
+  {
+    "tpope/vim-fugitive",
+  	event = { "VeryLazy" },
+    config = function()
+        require("core.utils").load_mappings("fugitive")
+    end,
   },
 }
 return plugins
