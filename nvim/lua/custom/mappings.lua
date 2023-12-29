@@ -4,6 +4,11 @@ M.dap = {
   plugin = true,
   n = {
     ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>" },
+    ["<leader>dc"] = { "<cmd> DapContinue <CR>" },
+    ["<leader>ds"] = { "<cmd> DapStepInto <CR>" },
+    ["<leader>do"] = { "<cmd> DapStepOut <CR>" },
+    ["<leader>dn"] = { "<cmd> DapStepOver <CR>" },
+    ["<leader>dh"] = { "<cmd> DapStop <CR>" },
     ["<leader>dus"] = {
       function ()
         local widgets = require('dap.ui.widgets');
@@ -13,6 +18,52 @@ M.dap = {
       "Open debugging sidebar"
     }
   }
+}
+
+M.dapui = {
+  plugin = true,
+  n = {
+    ["<leader>dt"] = {
+      function ()
+        local dapui = require('dapui')
+        dapui.toggle()
+      end,
+      "Toggle dapui"
+    },
+    ["<leader>dr"] = {
+      function ()
+        local dapui = require('dapui')
+        dapui.open({reset = true})
+      end,
+      "Reset dapui"
+    },
+    ["<leader>dT"] = {
+      function ()
+        local render = require("dapui.config").render
+        render.max_type_length = (render.max_type_length == nil) and 0 or nil
+        require("dapui").update_render(render)
+      end,
+      "Toggle types on dapui locals"
+    },
+  },
+}
+
+M.dap_go = {
+  plugin = true,
+  n = {
+    ["<leader>dgt"] = {
+      function()
+        require('dap-go').debug_test()
+      end,
+      "Debug go test"
+    },
+    ["<leader>dgl"] = {
+      function()
+        require('dap-go').debug_last_test()
+      end,
+      "Debug last go test"
+    },
+  },
 }
 
 M.crates = {

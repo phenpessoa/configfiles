@@ -57,6 +57,23 @@ local plugins = {
     end
   },
   {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
+    init = function()
+      require("dapui").setup()
+      require("core.utils").load_mappings("dapui")
+    end
+  },
+  {
+    "leoluz/nvim-dap-go",
+    ft = "go",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function(_, opts)
+      require("dap-go").setup(opts)
+      require("core.utils").load_mappings("dap_go")
+    end
+  },
+  {
     'saecki/crates.nvim',
     ft = {"toml"},
     config = function(_, opts)
