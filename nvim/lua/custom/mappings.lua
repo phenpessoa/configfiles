@@ -16,7 +16,13 @@ M.dap = {
         sidebar.open();
       end,
       "Open debugging sidebar"
-    }
+    },
+    ["<leader>dw"] = {
+      function ()
+        require('dap').clear_breakpoints()
+      end,
+      "Clear all breakpoints"
+    },
   }
 }
 
