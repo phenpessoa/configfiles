@@ -8,7 +8,23 @@ M.dap = {
     ["<leader>ds"] = { "<cmd> DapStepInto <CR>" },
     ["<leader>do"] = { "<cmd> DapStepOut <CR>" },
     ["<leader>dn"] = { "<cmd> DapStepOver <CR>" },
-    ["<leader>dh"] = { "<cmd> DapStop <CR>" },
+    ["<leader>dh"] = {
+      function ()
+        local dap = require("dap")
+        local dap_sessions = dap.sessions()
+
+        for _, session in pairs(dap_sessions) do
+          if (session.filetype == "go") then
+            vim.api.nvim_command("GoDbgStop")
+          end
+        end
+
+        if next(dap_sessions) then
+          vim.api.nvim_command("DapStop")
+        end
+      end,
+      "Terminate debug session"
+    },
     ["<leader>dus"] = {
       function ()
         local widgets = require('dap.ui.widgets');
