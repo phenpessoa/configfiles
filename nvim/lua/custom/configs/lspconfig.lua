@@ -30,9 +30,16 @@ local function organize_imports()
     vim.lsp.buf.execute_command(params)
 end
 
+lspconfig.templ.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { "templ" },
+    filetypes = { "templ" },
+})
+
 lspconfig.tsserver.setup {
     on_attach = on_attach,
-    capabilities = capabilities,   
+    capabilities = capabilities,
     init_options = {
         preferences = {
             disableSuggestions = true,
@@ -45,3 +52,22 @@ lspconfig.tsserver.setup {
         }
     },
 }
+
+lspconfig.html.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "html", "templ" },
+})
+
+lspconfig.htmx.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "html", "templ" },
+})
+
+lspconfig.tailwindcss.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+    init_options = { userLanguages = { templ = "html" } },
+})

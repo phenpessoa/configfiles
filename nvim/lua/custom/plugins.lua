@@ -29,6 +29,10 @@ local plugins = {
         "goimports-reviser",
 
         "rust-analyzer",
+
+        "html-lsp",
+        "htmx-lsp",
+        "tailwindcss-language-server",
       },
     },
   },

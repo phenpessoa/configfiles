@@ -1,3 +1,5 @@
+vim.filetype.add({ extension = { templ = "templ" } })
+
 vim.g.dap_virtual_text = true
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "80"
