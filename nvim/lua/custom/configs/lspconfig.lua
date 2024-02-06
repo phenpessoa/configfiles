@@ -33,7 +33,6 @@ end
 lspconfig.templ.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = { "templ" },
     filetypes = { "templ" },
 })
 
