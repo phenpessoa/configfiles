@@ -51,7 +51,7 @@ local plugins = {
   },
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = "mfussenegger/nvim-dap",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     init = function()
       require("dapui").setup()
       require("core.utils").load_mappings("dapui")
