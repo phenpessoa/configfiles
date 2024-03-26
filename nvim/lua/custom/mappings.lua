@@ -129,6 +129,10 @@ M.fugitive = {
       "<cmd> Git add -A <CR>",
       "Runs git add -A",
     },
+    ["<leader>gp"] = {
+      "<cmd> Git push <CR>",
+      "Runs git push",
+    }
   }
 }
 
